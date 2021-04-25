@@ -1,8 +1,13 @@
+// Imports
+const { Main } = require("./backend/main.js");
+
+// Modules
 const express = require("express");
 const http = require("http");
 const { Server } = require("socket.io");
 const path = require("path");
 
+// Setup
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
@@ -28,7 +33,7 @@ io.on("connection", (socket) => {
   console.log("[\x1b[32m+\x1b[0m] User connected\x1b[33m", socket.id, "\x1b[0m");
   socket.on("disconnect", () => {
     console.log("[\x1b[31m-\x1b[0m] User disconnected\x1b[33m", socket.id, "\x1b[0m");
-  })
+  });
 });
 
 server.listen(port, () => {
