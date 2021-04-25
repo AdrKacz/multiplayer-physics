@@ -1,0 +1,27 @@
+{
+  "name": "multiplayer-physics",
+  "version": "1.0.0",
+  "description": "Simple Minimal Multiplayer Physics over Network",
+  "main": "index.js",
+  "scripts": {
+    "prod": "node app.js",
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdrKacz/multiplayer-physics.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AdrKacz/multiplayer-physics/issues"
+  },
+  "homepage": "https://github.com/AdrKacz/multiplayer-physics#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
