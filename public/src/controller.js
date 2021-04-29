@@ -1,34 +1,24 @@
-// Create box on click
-function createBox() {
-  Composite.add(boxWorld, Bodies.rectangle(Common.random(200, 600), Common.random(50, 200), 80, 80));
-}
-
 canvas.addEventListener("click", (event) => {
+  socket.emit("action", {
+    name: "createBox",
+  });
+
   createBox();
 });
 
-// Set clear and restore action
-function clear() {
-  console.log("Clear Boxes");
-  savedBodies = Composite.allBodies(boxWorld);
-  Composite.clear(boxWorld);
-};
-
-function restore() {
-  if (savedBodies === undefined) {
-    return;
-  };
-  console.log("Restore Boxes");
-  Composite.clear(boxWorld);
-  Composite.add(boxWorld, savedBodies);
-};
-
-let savedBodies = undefined;
 document.querySelector("button#clear").addEventListener("click", (_) => {
+  socket.emit("action", {
+    name: "clear",
+  });
+
   clear();
 });
 
 document.querySelector("button#restore").addEventListener("click", (_) => {
+  socket.emit("action", {
+    name: "restore",
+  });
+
   restore();
 });
 
@@ -40,6 +30,9 @@ document.addEventListener("keyup", (event) => {
     return;
   };
 
+  socket.emit("action", {
+    name: "clear",
+  });
   clear();
 });
 
@@ -51,5 +44,8 @@ document.addEventListener("keyup", (event) => {
     return;
   };
 
+  socket.emit("action", {
+    name: "restore",
+  });
   restore();
 });

@@ -4,8 +4,8 @@
   "description": "Simple Minimal Multiplayer Physics over Network",
   "main": "index.js",
   "scripts": {
-    "prod": "node app.js",
-    "start": "nodemon app.js",
+    "prod": "node index.js",
+    "start": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
