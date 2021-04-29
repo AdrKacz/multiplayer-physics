@@ -67,13 +67,13 @@ function renderWorld() {
   ctx.fillRect(0, 0, width, height);
 
   const allBodies = Composite.allBodies(engine.world);
-  const allConstraints = Composite.allConstraints(engine.world);
+  // const allConstraints = Composite.allConstraints(engine.world);
 
   // const bodies = optimizeBodies(allBodies);
   // const constraints = optimizeConstraints(allConstraints);
 
   const bodies = allBodies;
-  const constraints = allConstraints;
+  // const constraints = allConstraints;
 
   bodies.forEach((body, i) => {
     if (!body.render.visible) {

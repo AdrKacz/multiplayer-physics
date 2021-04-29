@@ -1,7 +1,8 @@
 // Create box on click
 function createBox() {
+  console.log("Create Box");
   Composite.add(boxWorld, Bodies.rectangle(Common.random(200, 600), Common.random(50, 200), 80, 80));
-}
+};
 
 // Set clear and restore action
 let savedBodies = undefined;
