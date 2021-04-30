@@ -7,7 +7,10 @@ const Common = Matter.Common;
 // Create box on click
 function createBox(boxWorld) {
   console.log("[Server] Create Box");
-  Composite.add(boxWorld, Bodies.rectangle(Common.random(200, 600), Common.random(50, 200), 80, 80));
+  const x = Common.random(200, 600);
+  const y = Common.random(50, 200);
+  Composite.add(boxWorld, Bodies.rectangle(x, y, 80, 80));
+  return {x:x, y:y}
 };
 
 // Set clear and restore action

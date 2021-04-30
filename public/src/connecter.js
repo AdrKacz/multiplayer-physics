@@ -34,5 +34,5 @@ socket.on("action", (event) => {
   if (Actions[event.name] === undefined) {
     console.error("Action Invalid");
   };
-  Actions[event.name]();
+  Actions[event.name](event);
 });

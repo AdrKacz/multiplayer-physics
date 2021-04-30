@@ -12,9 +12,6 @@ const Common = Matter.Common;
 const engine = Engine.create();
 const runner = Runner.create();
 
-// Fixed Random Seed [DEV]
-Common._seed = 42;
-
 // === Init ===
 
 // Create box composites
@@ -55,18 +52,21 @@ const DefinedActions = require("./actions.js");
 const Actions = {
   "clear": (socketId, _) => {
     console.log("\x1b[33m", socketId, "\x1b[0m: Clear");
-    DefinedActions.clear(boxWorld);
+    const info = DefinedActions.clear(boxWorld);
     console.log("[Server] World Count > ", Composite.allBodies(engine.world).length); // [Debug]
+    return info;
   },
   "restore": (socketId, _) => {
     console.log("\x1b[33m", socketId, "\x1b[0m: Restore");
-    DefinedActions.restore(boxWorld);
+    const info = DefinedActions.restore(boxWorld);
     console.log("[Server] World Count > ", Composite.allBodies(engine.world).length); // [Debug]
+    return info;
   },
   "createBox": (socketId, _) => {
     console.log("\x1b[33m", socketId, "\x1b[0m: Create Box");
-    DefinedActions.createBox(boxWorld);
+    const info = DefinedActions.createBox(boxWorld);
     console.log("[Server] World Count > ", Composite.allBodies(engine.world).length); // [Debug]
+    return info;
   },
 };
 

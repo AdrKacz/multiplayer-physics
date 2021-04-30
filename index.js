@@ -55,8 +55,11 @@ io.on("connection", (socket) => {
     if (Actions[event.name] === undefined) {
       return;
     };
-    Actions[event.name](socket.id, event);
-    socket.broadcast.emit("action", event);
+    const info = Actions[event.name](socket.id, event);
+    io.emit("action", {
+      ...event,
+      server: info,
+    });
   });
 });
 

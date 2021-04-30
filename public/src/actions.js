@@ -1,22 +1,27 @@
 // Create box on click
-function createBox() {
-  console.log("Create Box");
-  Composite.add(boxWorld, Bodies.rectangle(Common.random(200, 600), Common.random(50, 200), 80, 80));
+function createBox(event) {
+  console.log("Create Box", event);
+
+  if (event?.server?.x === undefined || event?.server?.y === undefined) {
+    console.error("Event Invalid");
+  }
+
+  Composite.add(boxWorld, Bodies.rectangle(event.server.x, event.server.y, 80, 80));
 };
 
 // Set clear and restore action
 let savedBodies = undefined;
-function clear() {
-  console.log("Clear Boxes");
+function clear(event) {
+  console.log("Clear Boxes", event);
   savedBodies = Composite.allBodies(boxWorld);
   Composite.clear(boxWorld);
 };
 
-function restore() {
+function restore(event) {
   if (savedBodies === undefined) {
     return;
   };
-  console.log("Restore Boxes");
+  console.log("Restore Boxes", event);
   Composite.clear(boxWorld);
   Composite.add(boxWorld, savedBodies);
 };

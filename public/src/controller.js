@@ -3,7 +3,7 @@ canvas.addEventListener("click", (event) => {
     name: "createBox",
   });
 
-  createBox();
+  // createBox();
 });
 
 document.querySelector("button#clear").addEventListener("click", (_) => {
@@ -11,7 +11,7 @@ document.querySelector("button#clear").addEventListener("click", (_) => {
     name: "clear",
   });
 
-  clear();
+  // clear();
 });
 
 document.querySelector("button#restore").addEventListener("click", (_) => {
@@ -19,7 +19,7 @@ document.querySelector("button#restore").addEventListener("click", (_) => {
     name: "restore",
   });
 
-  restore();
+  // restore();
 });
 
 document.addEventListener("keyup", (event) => {
@@ -33,7 +33,7 @@ document.addEventListener("keyup", (event) => {
   socket.emit("action", {
     name: "clear",
   });
-  clear();
+  // clear();
 });
 
 document.addEventListener("keyup", (event) => {
@@ -47,5 +47,5 @@ document.addEventListener("keyup", (event) => {
   socket.emit("action", {
     name: "restore",
   });
-  restore();
+  // restore();
 });
