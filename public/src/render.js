@@ -15,12 +15,6 @@ const canvasBounds = {
   },
 };
 
-function drawObject(object) {
-  ctx.beginPath();
-  ctx.fillStyle = 'rgba(255, 0, 0, 1)';
-  ctx.fillRect(object.position.x, object.position.y, 80, 80);
-}
-
 function optimizeBodies(allBodies) {
   // filter out bodies that are not in view
   const bodies = [];

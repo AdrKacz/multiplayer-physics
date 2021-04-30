@@ -20,6 +20,7 @@
   "homepage": "https://github.com/AdrKacz/multiplayer-physics#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "json-stringify-safe": "^5.0.1",
     "matter-js": "^0.17.1",
     "socket.io": "^4.0.1"
   },

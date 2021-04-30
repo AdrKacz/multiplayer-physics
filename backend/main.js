@@ -1,3 +1,6 @@
+// Import JSON safe serializer
+const stringify = require("json-stringify-safe");
+
 // Import Physics Engine
 const Matter = require("matter-js");
 const Engine = Matter.Engine;
@@ -24,7 +27,7 @@ Runner.run(runner, engine);
 
 // Access for render [DEBUG]
 function AccessWorld() {
-  return Composite.allBodies(engine.world);
+  return stringify(Composite.allBodies(engine.world));
 }
 
 // Define Action
