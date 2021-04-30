@@ -4,8 +4,11 @@
   "description": "Simple Minimal Multiplayer Physics over Network",
   "main": "index.js",
   "scripts": {
-    "prod": "node index.js",
-    "start": "nodemon",
+    "start": "node index.js",
+    "start-dev": "nodemon --exec 'npm run secure && node index.js'",
+    "secure": "./secure.sh",
+    "sync": "nodemon --exec 'npm run single-sync'",
+    "single-sync": "rsync -avz -e 'ssh -i ../key-pg02.pem' --exclude={'node_modules','.git','.gitignore','.DS_Store'} ./ ec2-user@52.51.191.209:/home/ec2-user/multiplayer-physics",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
