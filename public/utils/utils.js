@@ -8,3 +8,6 @@ const Common = Matter.Common;
 
 const engine = Engine.create();
 const runner = Runner.create();
+
+// Fixed Random Seed [DEV]
+Common._seed = 42;
