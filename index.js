@@ -1,5 +1,6 @@
 // Imports
 const { Main, Actions } = require("./backend/main.js");
+const { Sync } = require("./backend/sync.js");
 const { Render } = require("./backend/rendering.js"); // [DEBUG]
 
 // Modules
@@ -60,10 +61,10 @@ io.on("connection", (socket) => {
 
 // [DEBUG] Socket Access
 function SocketEmit(eventName, msg) {
-  console.log("[SocketAccess] > ", eventName);
   io.emit(eventName, msg);
 };
 Render(SocketEmit);
+Sync(SocketEmit);
 
 server.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);

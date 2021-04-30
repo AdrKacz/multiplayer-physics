@@ -7,6 +7,7 @@ const Engine = Matter.Engine;
 const Runner = Matter.Runner;
 const Bodies = Matter.Bodies;
 const Composite = Matter.Composite;
+const Common = Matter.Common;
 
 const engine = Engine.create();
 const runner = Runner.create();
@@ -25,10 +26,26 @@ Composite.add(engine.world, Bodies.rectangle(400, 610, 810, 60, { isStatic: true
 // Run
 Runner.run(runner, engine);
 
+// Return sync object
+function SyncWorld() {
+  const boxWorldSync = Common.map(Composite.allBodies(boxWorld), (body) => {
+    return {
+      position: body.position,
+      velocity: body.velocity,
+      angle: body.angle,
+      angularVelocity: body.angularVelocity,
+    }
+  });
+  return JSON.stringify({
+    length: boxWorldSync.length,
+    boxWorld: boxWorldSync,
+  });
+};
+
 // Access for render [DEBUG]
 function AccessWorld() {
   return stringify(Composite.allBodies(engine.world));
-}
+};
 
 // Define Action
 const DefinedActions = require("./actions.js");
@@ -56,4 +73,5 @@ exports.Main = () => {
 
 exports.Actions = Actions;
 
-exports.world = AccessWorld; // [Debug]
+exports.sync = SyncWorld; // [Debug]
+exports.access = AccessWorld; // [Debug]
