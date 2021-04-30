@@ -29,3 +29,10 @@ function syncWorld(sync) {
 socket.on("client sync", (sync) => {
   syncWorld(JSON.parse(sync));
 });
+
+socket.on("action", (event) => {
+  if (Actions[event.name] === undefined) {
+    console.error("Action Invalid");
+  };
+  Actions[event.name]();
+});

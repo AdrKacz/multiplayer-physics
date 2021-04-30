@@ -56,6 +56,7 @@ io.on("connection", (socket) => {
       return;
     };
     Actions[event.name](socket.id, event);
+    socket.broadcast.emit("action", event);
   });
 });
 

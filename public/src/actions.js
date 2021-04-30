@@ -20,3 +20,9 @@ function restore() {
   Composite.clear(boxWorld);
   Composite.add(boxWorld, savedBodies);
 };
+
+const Actions = {
+  createBox: createBox,
+  clear: clear,
+  restore: restore,
+};
